@@ -1,1 +1,40 @@
-export function createCharacterCard() {}
+/* {
+    "id":159,"name":"Hunter","status":"Dead","
+species":"Human","type":"Clone","gender":"Male",
+"origin":{
+    "name":"Earth (Giant Telepathic Spiders Dimension)",
+"url":"https://rickandmortyapi.com/api/location/42"
+},
+"location":{
+    "name":"Earth (Giant Telepathic Spiders Dimension)",
+"url":"https://rickandmortyapi.com/api/location/42"
+},
+"image":"https://rickandmortyapi.com/api/character/avatar/159.jpeg",
+"episode":["https://rickandmortyapi.com/api/episode/17"],
+"url":"https://rickandmortyapi.com/api/character/159","created":"2017-12-29T16:03:28.792Z"}
+*/
+
+export function createCharacterCard(character) {
+  const listElement = document.createElement("li");
+  listElement.classList.add("card");
+  listElement.innerHTML = `<div class="card__image-container">
+  <img
+    class="card__image"
+    src="${character.image}"
+    alt="${character.name}"
+  />
+  <div class="card__image-gradient"></div>
+</div>
+<div class="card__content">
+  <h2 class="card__title">${character.name}</h2>
+  <dl class="card__info">
+    <dt class="card__info-title">Status</dt>
+    <dd class="card__info-description">${character.status}</dd>
+    <dt class="card__info-title">Type</dt>
+    <dd class="card__info-description">${character.type}</dd>
+    <dt class="card__info-title">Occurrences</dt>
+    <dd class="card__info-description">${character.episode.length}</dd>
+  </dl>
+</div>`;
+  return listElement;
+}
